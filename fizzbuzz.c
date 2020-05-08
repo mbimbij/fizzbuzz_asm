@@ -47,6 +47,13 @@ static char * fizzbuzz_6_should_be_fizz() {
   return 0;
 }
 
+static char * fizzbuzz_7_should_be_7() {
+  char * str = fizzbuzz(7);
+  printf("call ret 7: %s\n",str);
+  mu_assert("error, fizzbuzz(7) != \"7\"", strcmp(str,"7") == 0);
+  return 0;
+}
+
 static char * all_tests() {
   mu_run_test(fizzbuzz_1_should_be_1);
   mu_run_test(fizzbuzz_2_should_be_2);
@@ -54,6 +61,7 @@ static char * all_tests() {
   mu_run_test(fizzbuzz_4_should_be_4);
   mu_run_test(fizzbuzz_5_should_be_buzz);
   mu_run_test(fizzbuzz_6_should_be_fizz);
+  mu_run_test(fizzbuzz_7_should_be_7);
   return 0;
 }
 

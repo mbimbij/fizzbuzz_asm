@@ -13,22 +13,29 @@ section .data
   fizzbuzzstr db  "fizzbuzz",0
 
 section .text
+
 fizzbuzz:
   push ebp
   mov ebp, esp
   ; moves input param to eax
   mov eax, [ebp+8]
   
-  ; compares input to 3, 5 and 15
+  ; test input % 3 == 0
   xor edx, edx
   mov ecx, 3
   div ecx
   cmp edx, 0
   je returnFizz
 
+  ; test input % 5 == 0
   mov eax, [ebp+8]
-  cmp eax, 5
+  xor edx, edx
+  mov ecx, 5
+  div ecx
+  cmp edx, 0
   je returnBuzz
+
+  mov eax, [ebp+8]
   jne returnNumber
   
 
