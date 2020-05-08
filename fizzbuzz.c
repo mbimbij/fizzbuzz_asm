@@ -54,6 +54,34 @@ static char * fizzbuzz_7_should_be_7() {
   return 0;
 }
 
+static char * fizzbuzz_8_should_be_8() {
+  char * str = fizzbuzz(8);
+  printf("call ret 8: %s\n",str);
+  mu_assert("error, fizzbuzz(7) != \"8\"", strcmp(str,"8") == 0);
+  return 0;
+}
+
+static char * fizzbuzz_9_should_be_fizz() {
+  char * str = fizzbuzz(9);
+  printf("call ret 9: %s\n",str);
+  mu_assert("error, fizzbuzz(9) != \"fizz\"", strcmp(str,"fizz") == 0);
+  return 0;
+}
+
+static char * fizzbuzz_10_should_be_buzz() {
+  char * str = fizzbuzz(10);
+  printf("call ret 10: %s\n",str);
+  mu_assert("error, fizzbuzz(10) != \"buzz\"", strcmp(str,"buzz") == 0);
+  return 0;
+}
+
+static char * fizzbuzz_11_should_be_11() {
+  char * str = fizzbuzz(11);
+  printf("call ret 11: %s\n",str);
+  mu_assert("error, fizzbuzz(11) != \"11\"", strcmp(str,"11") == 0);
+  return 0;
+}
+
 static char * all_tests() {
   mu_run_test(fizzbuzz_1_should_be_1);
   mu_run_test(fizzbuzz_2_should_be_2);
@@ -62,6 +90,10 @@ static char * all_tests() {
   mu_run_test(fizzbuzz_5_should_be_buzz);
   mu_run_test(fizzbuzz_6_should_be_fizz);
   mu_run_test(fizzbuzz_7_should_be_7);
+  mu_run_test(fizzbuzz_8_should_be_8);
+  mu_run_test(fizzbuzz_9_should_be_fizz);
+  mu_run_test(fizzbuzz_10_should_be_buzz);
+  mu_run_test(fizzbuzz_11_should_be_11);
   return 0;
 }
 
