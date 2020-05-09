@@ -22,9 +22,17 @@ fizzbuzz:
   push ebp
   mov ebp, esp
   ; moves input param to eax
+  
+  ; test input % 15 == 0
   mov eax, [ebp+8]
+  xor edx, edx
+  mov ecx, 15
+  div ecx
+  cmp edx, 0
+  je returnFizzbuzz
   
   ; test input % 3 == 0
+  mov eax, [ebp+8]
   xor edx, edx
   mov ecx, 3
   div ecx
@@ -45,9 +53,9 @@ fizzbuzz:
 
 returnNumber:
   ; adds input param value to ascii code of "0" -> when not fizz, buzz or fizzbuzz
-	push    ebx                                     ; 0000 _ 53
 	mov     edi, 3                                  ; 0001 _ BF, 00000003
 	call    malloc                                  ; 0006 _ E8, 00000000(PLT r)
+  ; le pointeur retournépar malloc se trouve dans ebx
 
   push dword [ebp+8]
   push formatint
@@ -74,6 +82,12 @@ returnFizz:
 
 returnBuzz:
   mov eax, buzz
+  mov esp, ebp
+  pop ebp
+  ret
+
+returnFizzbuzz:
+  mov eax, fizzbuzzstr
   mov esp, ebp
   pop ebp
   ret
